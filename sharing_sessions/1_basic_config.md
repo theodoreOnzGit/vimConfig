@@ -243,6 +243,23 @@ word.
 p
 ```
 
+If you are pasting from outside vim, usually these work:
+
+```
+Ctrl-Shift-v
+```
+
+```
+Ctrl-V
+```
+
+You can also highlight entire lines using:
+
+```
+V
+```
+
+
 ## jumping words
 
 For vim, we jump words using three main letters:
@@ -282,6 +299,56 @@ iw
 ```
 
 What does iw stand for? It means "in word". So highlight in word.
+
+## find and replace 
+
+In visual mode, highlight the paragraphs or lines where you want to 
+find an replace.
+
+Then press:
+```
+:s
+```
+
+This will bring you into the find and replace.
+
+Let's say you have to find and replace no and put a yes.
+
+```
+no no no
+```
+
+You would highlight the entire line and write:
+```
+:s/no/yes
+```
+
+press enter (also called carriage return <CR>) to complete the find and 
+replace.
+
+If you want to replace all instances, of no:
+
+```
+:s/no/yes/g
+```
+
+You can also use pound signs or hashtags, they do the same thing:
+
+```
+:s#no#yes#g
+```
+
+If you there is a special character you want to include, use the backslash \
+
+For example, if you wanted to replace no with y#s, then:
+
+
+```
+:s#no#y\#s#g
+```
+
+I'm more used to forward slashes, but it's really up to you.
+
 
 # terminal, split panes and tabs
 
@@ -366,6 +433,56 @@ Ctrl-\ Ctrl-N
 ```
 
 What it feels like is Ctrl-\ Ctrl-Shift-n.
+
+# Plugins 
+
+vim becomes really really powerful once you start using plugins. Plugins 
+allow for vim to have much more capabilities. 
+
+```
+https://github.com/junegunn/vim-plug
+```
+
+One of the plugin managers is called vim-plug. To install vim-plug:
+
+```
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+One of my favourite plugins is NERDTree, which allows for you to have 
+a file explorer within vim.
+
+To install NERDTree, paste this within your vimrc file:
+
+```
+call plug#begin()
+  Plug 'preservim/nerdtree'
+call plug#end()
+```
+
+When starting vim, run in normal mode:
+
+```
+:PlugInstall
+```
+
+To run NERDTree, use:
+
+```
+:NERDTree
+```
+
+For help with NERDTree, use the "?" to toggle help when you are in the 
+NERDTree pane.
+
+There are plenty of vim plugins. I usually like to watch YouTube to learn 
+more. ThePrimeagen is one good content creator who loves vim (or more 
+specifically neovim).
+
+
+
+
 
 
 
